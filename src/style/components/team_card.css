@@ -1,0 +1,47 @@
+.team-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.team-card:hover {
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+.team-card__image {
+  width: 150px;
+  height: 150px;
+}
+
+.team-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 0;
+  transition: all 150ms;
+}
+
+.team-card__overlay:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-card__overlay-title {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-weight: 300;
+}

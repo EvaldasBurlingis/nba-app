@@ -1,0 +1,46 @@
+.modal-table {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 4rem rgba(0, 0, 0, 0.2);
+  font-family: "Roboto";
+  padding: 2rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.modal-table__header > tr {
+  background-color: #333;
+  color: white;
+  width: 100%;
+}
+
+.modal-table__header > tr > th {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1;
+  padding: 1rem 0;
+}
+
+.modal-table__body {
+  width: 100%;
+  /* overflow: auto; */
+  height: 200px;
+}
+
+.modal-table__body > tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-table__body > tr:nth-child(odd) {
+  background: #ddd;
+}
+
+.modal-table__body > tr > td {
+  text-align: center;
+}
+
+.modal-table__image {
+  height: 100px;
+}
