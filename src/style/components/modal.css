@@ -1,7 +1,7 @@
 .modal {
   min-height: 100%;
   width: 100%;
-  padding-bottom: 3rem;
+  padding: 2rem 0;
 }
 
 .popup-content {
@@ -26,8 +26,8 @@
   width: 64px;
   height: 64px;
   position: sticky;
-  top: 0px;
-  left: 0px;
+  top: 24px;
+  left: 24px;
   z-index: 999;
   border-radius: 50%;
   transition: all 150ms ease-in;

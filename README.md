@@ -9,5 +9,6 @@ Simple React applications playing with 2 different NBA API's. APIS used are with
 [] Add buttons to choose teams by divisions
 [] Add SearchBar to search team
 [] grab info from different api pages
+[] mobile friendly
 
 ## What I Learned
