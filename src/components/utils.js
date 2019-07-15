@@ -17,6 +17,5 @@ export const checkIfValidAbbreviation = name => {
     default:
       break;
   }
-  console.log(result);
   return result;
 };
