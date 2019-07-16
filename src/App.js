@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TeamList, NavBar } from "./components";
+import { TeamList, NavBar, Loader } from "./components";
 import "./style/main.css";
 
 class App extends Component {
@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       teams: [],
       search: "",
-      conference: ""
+      conference: "",
+      loading: true
     };
   }
 
@@ -17,7 +18,7 @@ class App extends Component {
   componentDidMount() {
     fetch("https://www.balldontlie.io/api/v1/teams")
       .then(res => res.json())
-      .then(data => this.setState({ teams: data.data }))
+      .then(data => this.setState({ teams: data.data, loading: false }))
       .catch(err => console.error(err));
   }
 
@@ -74,8 +75,8 @@ class App extends Component {
           westButtonClick={this.onWestButtonClick}
         />
         <div className="App">
-          {filterSearch.length === 0 ? (
-            <h1>Team not found</h1>
+          {this.state.loading ? (
+            <Loader loading={this.state.loading} />
           ) : (
             <TeamList teams={filterSearch} />
           )}

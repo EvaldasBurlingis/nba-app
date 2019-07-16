@@ -1,10 +1,10 @@
 import React from "react";
+import { Btn } from "./index";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -75,22 +75,20 @@ const NavBar = ({ searchChange, eastButtonClick, westButtonClick }) => {
             />
           </div>
           <div>
-            <Button
-              onClick={westButtonClick}
-              color="primary"
-              variant="contained"
-              className={classes.button}
-            >
-              Western Conference
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
-              className={classes.button}
-              onClick={eastButtonClick}
-            >
-              Eastern Conference
-            </Button>
+            <Btn
+              color={"secondary"}
+              variant={"contained"}
+              click={westButtonClick}
+              style={classes.button}
+              text="Western Conference"
+            />
+            <Btn
+              color={"primary"}
+              variant={"contained"}
+              click={eastButtonClick}
+              style={classes.button}
+              text="Eastern Conference"
+            />
           </div>
         </Toolbar>
       </AppBar>
