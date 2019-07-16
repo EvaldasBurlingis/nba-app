@@ -22,12 +22,14 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
+  // Team Search
   onSearchChange = event => {
     this.setState({
       search: event.target.value
     });
   };
 
+  // Navbar EasternConference click
   onEastButtonClick = event => {
     let newState;
     this.state.conference === "east" ? (newState = "") : (newState = "east");
@@ -36,6 +38,7 @@ class App extends Component {
     });
   };
 
+  // Navbar western conference click
   onWestButtonClick = event => {
     let newState;
     this.state.conference === "west" ? (newState = "") : (newState = "west");
@@ -45,7 +48,7 @@ class App extends Component {
   };
 
   render() {
-    //filter teams
+    //filter teams by conference
     const filterConference = this.state.teams.filter(team => {
       const teamConference = `${team.conference}`;
 
@@ -56,6 +59,7 @@ class App extends Component {
       return searchedConf;
     });
 
+    //filter by search
     const filterSearch = filterConference.filter(team => {
       const teamName = `${team.full_name}`;
 
@@ -63,7 +67,6 @@ class App extends Component {
       let searchedTeam = teamName
         .toLowerCase()
         .includes(this.state.search.toLowerCase());
-
       return searchedTeam;
     });
 
@@ -73,6 +76,7 @@ class App extends Component {
           searchChange={this.onSearchChange}
           eastButtonClick={this.onEastButtonClick}
           westButtonClick={this.onWestButtonClick}
+          conference={this.state.conference}
         />
         <div className="App">
           {this.state.loading ? (

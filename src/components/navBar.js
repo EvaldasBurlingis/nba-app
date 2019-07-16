@@ -53,7 +53,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NavBar = ({ searchChange, eastButtonClick, westButtonClick }) => {
+const NavBar = ({
+  searchChange,
+  eastButtonClick,
+  westButtonClick,
+  conference
+}) => {
   const classes = useStyles();
 
   return (
@@ -79,15 +84,15 @@ const NavBar = ({ searchChange, eastButtonClick, westButtonClick }) => {
               color={"secondary"}
               variant={"contained"}
               click={westButtonClick}
-              style={classes.button}
               text="Western Conference"
+              checked={conference === "west" ? true : false}
             />
             <Btn
               color={"primary"}
               variant={"contained"}
               click={eastButtonClick}
-              style={classes.button}
               text="Eastern Conference"
+              checked={conference === "east" ? true : false}
             />
           </div>
         </Toolbar>
