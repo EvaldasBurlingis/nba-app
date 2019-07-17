@@ -26,6 +26,10 @@
   width: 64px;
   height: 64px;
   position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   top: 24px;
   left: 24px;
   z-index: 999;
