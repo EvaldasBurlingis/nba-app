@@ -75,3 +75,39 @@
   margin: 1rem 1rem;
   font-size: 1.1rem;
 }
+
+/* MOBILE QUERY */
+@media (max-width: 500px) {
+  .modal {
+    padding: 1rem 0;
+  }
+  .modal-button__close {
+    width: 48px;
+    height: 48px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .modal-header {
+    flex-direction: column;
+  }
+
+  .modal-header__logo {
+    width: 150px;
+    height: 150px;
+    margin-right: 0rem;
+  }
+
+  .modal-header__info-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .modal-header__info-details > span {
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

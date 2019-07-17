@@ -21,7 +21,7 @@ const PlayersTable = ({ data }) => {
         {data.map(player => {
           const full_name = player.name.split(" ");
           return (
-            <tr key={player.name}>
+            <tr key={player.name} className="table-row">
               <td className="modal-table__image">
                 <img
                   src={`https://nba-players.herokuapp.com/players/${
@@ -31,14 +31,14 @@ const PlayersTable = ({ data }) => {
                 />
               </td>
               <td style={{ fontWeight: "700" }}>{player.name}</td>
-              <td>{player.games_played}</td>
-              <td>{player.points_per_game}</td>
-              <td>{player.rebounds_per_game}</td>
-              <td>{player.assists_per_game}</td>
-              <td>{player.blocks_per_game}</td>
-              <td>{player.field_goal_percentage}</td>
-              <td>{player.three_point_percentage}</td>
-              <td>{player.free_throw_percentage}</td>
+              <td className="info-field">{player.games_played}</td>
+              <td className="info-field">{player.points_per_game}</td>
+              <td className="info-field">{player.rebounds_per_game}</td>
+              <td className="info-field">{player.assists_per_game}</td>
+              <td className="info-field">{player.blocks_per_game}</td>
+              <td className="info-field">{player.field_goal_percentage}</td>
+              <td className="info-field">{player.three_point_percentage}</td>
+              <td className="info-field">{player.free_throw_percentage}</td>
             </tr>
           );
         })}
