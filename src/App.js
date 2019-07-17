@@ -30,9 +30,10 @@ class App extends Component {
     this.setState({search: e.target.value});
   };
 
+  // CLEAR SEARCH FIELD
+  // If search field is not empty, add button to clear it
   onSearchClearBtnClick = e => {
     this.setState({ search: "" })
-    console.log(e.target.value)
   }
 
 

@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
       width: theme.spacing(6),
       pointerEvents: "pointer",
       '&:hover': {
-        color: "red"
+        color: "red",
       },
     },
     inputRoot: {
@@ -45,13 +45,6 @@ const useStyles = makeStyles(theme => ({
       width: "100%",
     }
   }));
-
-
-//get search state
-//if not empty add button to clear search
-//on click run function that changes search state to clear again
-
-
 
 const SearchInput = ({ searchChange, searchState, clearSearch }) => {
     const classes = useStyles();
