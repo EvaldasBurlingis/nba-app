@@ -17,7 +17,9 @@ const NavBar = ({
   searchChange,
   eastButtonClick,
   westButtonClick,
-  conference
+  conference,
+  searchState,
+  clearSearch
 }) => {
   const classes = useStyles();
 
@@ -25,7 +27,7 @@ const NavBar = ({
     <div className={classes.root}>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <SearchInput searchChange={searchChange}/>
+          <SearchInput searchChange={searchChange} searchState={searchState} clearSearch={clearSearch}/>
           <div>
             <Btn
               color={"secondary"}

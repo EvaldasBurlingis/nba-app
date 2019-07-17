@@ -30,6 +30,11 @@ class App extends Component {
     this.setState({search: e.target.value});
   };
 
+  onSearchClearBtnClick = e => {
+    this.setState({ search: "" })
+    console.log(e.target.value)
+  }
+
 
   // SELECT EAST CONFERENCE BUTTON
   onEastButtonClick = e => {
@@ -70,6 +75,8 @@ class App extends Component {
           eastButtonClick={this.onEastButtonClick}
           westButtonClick={this.onWestButtonClick}
           conference={selectedConference}
+          searchState={search}
+          clearSearch={this.onSearchClearBtnClick}
         />
         <div className="App">
           {loading ? (

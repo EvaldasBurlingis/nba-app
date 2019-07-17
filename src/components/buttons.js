@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: "14px",
     '&:hover': {
       background: "#3f51b5",
-      color: "white"
+      color: "#ffffff"
     },
     // hide buttons for now on mobile
     [theme.breakpoints.down("sm")]: {
@@ -26,7 +26,7 @@ const Btn = ({ variant, click, text, checked }) => {
   const classes = useStyles();
   return (
     <Button
-      color={checked ? "primary" : ""}
+      color={checked ? "primary" : "default" }
       variant={variant}
       className={classes.button}
       onClick={click}
