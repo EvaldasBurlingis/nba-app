@@ -1,0 +1,17 @@
+/* POSITIONING */
+.fw-center {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .display-1 {
+    font-family: var(--main-font);
+    font-size: 4rem;
+  }
+  
+  .text-center {
+    text-align: center
+  }

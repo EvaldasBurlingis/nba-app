@@ -3,7 +3,7 @@ import { ClipLoader } from "react-spinners";
 
 const Loader = ({ loading }) => {
   return (
-    <div className="loader">
+    <div className="fw-center">
       <ClipLoader
         sizeUnit={"px"}
         size={150}

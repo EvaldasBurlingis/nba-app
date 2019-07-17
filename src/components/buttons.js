@@ -1,11 +1,21 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import CheckIcon from "@material-ui/icons/Check";
 
 const useStyles = makeStyles(theme => ({
   button: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    fontSize: "14px",
+    '&:hover': {
+      background: "#3f51b5",
+      color: "white"
+    },
+    // hide buttons for now on mobile
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+
+    }
   },
   icon: {
     marginLeft: theme.spacing(1)

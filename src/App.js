@@ -9,12 +9,14 @@ class App extends Component {
     this.state = {
       teams: [],
       search: "",
-      conference: "",
+      selectedConference: "",
       loading: true
     };
   }
 
   // Get teams from API
+  // Show loader before teams are loaded
+  // Once they load, replace loader with teams
   componentDidMount() {
     fetch("https://www.balldontlie.io/api/v1/teams")
       .then(res => res.json())
@@ -22,52 +24,43 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-  // Team Search
-  onSearchChange = event => {
+
+  // TEAM SEARCH
+  onSearchChange = e => {
+    this.setState({search: e.target.value});
+  };
+
+
+  // SELECT EAST CONFERENCE BUTTON
+  onEastButtonClick = e => {
+    let newConfState;
+    this.state.selectedConference === "east" ? (newConfState = "") : (newConfState = "east");
     this.setState({
-      search: event.target.value
+      selectedConference: newConfState
     });
   };
 
-  // Navbar EasternConference click
-  onEastButtonClick = event => {
-    let newState;
-    this.state.conference === "east" ? (newState = "") : (newState = "east");
+  // SELECT WEST CONFERENCE BUTTON
+  onWestButtonClick = e => {
+    let newConfState;
+    this.state.selectedConference === "west" ? (newConfState = "") : (newConfState = "west");
     this.setState({
-      conference: newState
-    });
-  };
-
-  // Navbar western conference click
-  onWestButtonClick = event => {
-    let newState;
-    this.state.conference === "west" ? (newState = "") : (newState = "west");
-    this.setState({
-      conference: newState
+      selectedConference: newConfState
     });
   };
 
   render() {
-    //filter teams by conference
-    const filterConference = this.state.teams.filter(team => {
-      const teamConference = `${team.conference}`;
-
-      let searchedConf = teamConference
-        .toLowerCase()
-        .includes(this.state.conference.toLowerCase());
-
-      return searchedConf;
+    const { teams, selectedConference, loading, search } = this.state;
+    // FILTER TEAMS BY SELECTED CONFERENCE
+    const filterConference = teams.filter(team => {
+      const { conference } = team;
+      return conference.toLowerCase().includes(selectedConference.toLowerCase());
     });
 
-    //filter by search
+    // FILTER BY SEARCH INPUT
     const filterSearch = filterConference.filter(team => {
-      const teamName = `${team.full_name}`;
-
-      //check search
-      let searchedTeam = teamName
-        .toLowerCase()
-        .includes(this.state.search.toLowerCase());
-      return searchedTeam;
+      const { full_name } = team 
+      return full_name.toLowerCase().includes(search.toLowerCase());
     });
 
     return (
@@ -76,11 +69,11 @@ class App extends Component {
           searchChange={this.onSearchChange}
           eastButtonClick={this.onEastButtonClick}
           westButtonClick={this.onWestButtonClick}
-          conference={this.state.conference}
+          conference={selectedConference}
         />
         <div className="App">
-          {this.state.loading ? (
-            <Loader loading={this.state.loading} />
+          {loading ? (
+            <Loader loading={loading} />
           ) : (
             <TeamList teams={filterSearch} />
           )}
