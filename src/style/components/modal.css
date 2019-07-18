@@ -89,8 +89,9 @@
   .modal-button__close {
     width: 48px;
     height: 48px;
-    top: 0px;
-    left: 0px;
+    top: 15px;
+    left: 5px;
+    position: fixed;
   }
 
   .modal-header {
