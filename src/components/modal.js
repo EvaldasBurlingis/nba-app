@@ -37,7 +37,7 @@ const Modal = ({ handlePopup, team, players }) => {
           {window.innerWidth > 760 ? (
             <PlayersTable data={players} />
           ) : (
-            <PlayerCard />
+            <PlayerCard players={players} />
           )}
         </div>
       )}

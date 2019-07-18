@@ -48,7 +48,6 @@ const useStyles = makeStyles(theme => ({
 
 const SearchInput = ({ searchChange, searchState, clearSearch }) => {
   const classes = useStyles();
-  console.log(searchState);
   return (
     <div className={classes.search}>
       <div className={classes.searchIcon}>
