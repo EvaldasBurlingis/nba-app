@@ -27,7 +27,9 @@ class TeamCard extends React.Component {
       `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
     )
       .then(res => res.json())
-      .then(data => this.setState({ players: data }))
+      .then(data => {
+        this.setState({ players: data });
+      })
       .catch(err => console.error(err));
   }
 

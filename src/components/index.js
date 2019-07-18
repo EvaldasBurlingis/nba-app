@@ -6,5 +6,16 @@ import NavBar from "./navBar";
 import Loader from "./loader";
 import Btn from "./buttons";
 import SearchInput from "./searchInput";
+import PlayerCard from "./playerCard";
 
-export { TeamList, TeamCard, Modal, PlayersTable, NavBar, Loader, Btn, SearchInput };
+export {
+  TeamList,
+  TeamCard,
+  Modal,
+  PlayersTable,
+  NavBar,
+  Loader,
+  Btn,
+  SearchInput,
+  PlayerCard
+};

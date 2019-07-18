@@ -43,6 +43,8 @@
 
 .modal-table__image {
   height: 100px;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {
@@ -54,8 +56,8 @@
   .modal-table__image {
     height: 100%;
     width: 100%;
-    margin: 0 auto;
-    border-radius: 50%;
+    display: flex !important;
+    justify-content: center !important;
   }
 
   .modal-table__header {

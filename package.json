@@ -8,9 +8,11 @@
     "react": "^16.8.6",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",
+    "react-id-swiper": "^2.3.1",
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.12",
-    "reactjs-popup": "^1.4.1"
+    "reactjs-popup": "^1.4.1",
+    "swiper": "^4.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

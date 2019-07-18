@@ -1,6 +1,6 @@
 import React from "react";
 import Popup from "reactjs-popup";
-import { PlayersTable } from "./index";
+import { PlayersTable, PlayerCard } from "./index";
 
 const Modal = ({ handlePopup, team, players }) => {
   const { abbreviation, city, conference, division, full_name } = team;
@@ -34,7 +34,11 @@ const Modal = ({ handlePopup, team, players }) => {
               </div>
             </div>
           </div>
-          <PlayersTable data={players} />
+          {window.innerWidth > 760 ? (
+            <PlayersTable data={players} />
+          ) : (
+            <PlayerCard />
+          )}
         </div>
       )}
     </Popup>
