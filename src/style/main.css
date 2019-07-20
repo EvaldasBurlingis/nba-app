@@ -17,5 +17,5 @@ BASE
 @import "components/team_list.css";
 @import "components/team_card.css";
 @import "components/modal.css";
-@import "components/table.css";
 @import "components/swiper.css";
+@import "components/player_card.css";

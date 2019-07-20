@@ -107,8 +107,14 @@ const PlayerCard = ({ players }) => {
           );
         })}
       </Swiper>
-      <button onClick={goPrev}>Prev</button>
-      <button onClick={goNext}>Next</button>
+      <div className="player-card--buttons">
+        <button className="buttons__select-button" onClick={goPrev}>
+          Prev
+        </button>
+        <button className="button__select-button" onClick={goNext}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };
