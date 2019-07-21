@@ -1,89 +1,73 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { TeamList, NavBar, Loader } from "./components";
 import "./style/main.css";
 
-class App extends Component {
-  constructor() {
-    super();
+const App = () => {
+  //  STATE
+  const [teams, setTeams] = useState([]);
+  const [teamSearch, setTeamSearch] = useState("");
+  const [filterByConferece, setFilterByConferece] = useState("");
+  const [loading, setLoading] = useState(true);
 
-    this.state = {
-      teams: [],
-      search: "",
-      selectedConference: "",
-      loading: true
-    };
-  }
-
-  // Get teams from API
-  // Show loader before teams are loaded
-  componentDidMount() {
-    fetch("https://www.balldontlie.io/api/v1/teams")
-      .then(res => res.json())
-      .then(data => this.setState({ teams: data.data, loading: false }))
+  useEffect(() => {
+    axios
+      .get(
+        "https://cors-anywhere.herokuapp.com/http://data.nba.net/json/cms/noseason/sportsmeta/nba_teams.json"
+      )
+      .then(res => {
+        setTeams(res.data.sports_content.teams.team);
+        setLoading(false);
+      })
       .catch(err => console.error(err));
-  }
+  });
 
   // TEAM SEARCH
-  onSearchChange = e => {
-    this.setState({ search: e.target.value });
+  const onSearchChange = e => {
+    setTeamSearch(e.target.value);
   };
 
   // CLEAR SEARCH FIELD
   // If search field is not empty, add button to clear it
-  onSearchClearBtnClick = e => {
-    this.setState({ search: "" });
+  const onSearchClearBtnClick = e => {
+    setTeamSearch("");
   };
 
   // SELECT EAST CONFERENCE BUTTON
-  onEastButtonClick = e => {
-    this.state.selectedConference === "east"
-      ? this.setState({ selectedConference: "" })
-      : this.setState({ selectedConference: "east" });
+  const onEastButtonClick = e => {
+    filterByConferece === "east"
+      ? setFilterByConferece("")
+      : setFilterByConferece("east");
   };
 
   // SELECT WEST CONFERENCE BUTTON
-  onWestButtonClick = e => {
-    this.state.selectedConference === "west"
-      ? this.setState({ selectedConference: "" })
-      : this.setState({ selectedConference: "west" });
+  const onWestButtonClick = e => {
+    filterByConferece === "west"
+      ? setFilterByConferece("")
+      : setFilterByConferece("west");
   };
 
-  render() {
-    const { teams, selectedConference, loading, search } = this.state;
-    // FILTER TEAMS BY SELECTED CONFERENCE
-    const filterConference = teams.filter(team => {
-      const { conference } = team;
-      return conference
-        .toLowerCase()
-        .includes(selectedConference.toLowerCase());
-    });
+  let filterNbaTeams = teams.filter(team => team.is_nba_team === true);
 
-    // FILTER BY SEARCH INPUT
-    const filterSearch = filterConference.filter(team => {
-      const { full_name } = team;
-      return full_name.toLowerCase().includes(search.toLowerCase());
-    });
-
-    return (
-      <div>
-        <NavBar
-          searchChange={this.onSearchChange}
-          eastButtonClick={this.onEastButtonClick}
-          westButtonClick={this.onWestButtonClick}
-          conference={selectedConference}
-          searchState={search}
-          clearSearch={this.onSearchClearBtnClick}
-        />
-        <div className="App">
-          {loading ? (
-            <Loader loading={loading} />
-          ) : (
-            <TeamList teams={filterSearch} />
-          )}
-        </div>
+  return (
+    <div>
+      <NavBar
+        searchChange={onSearchChange}
+        eastButtonClick={onEastButtonClick}
+        westButtonClick={onWestButtonClick}
+        conference={filterByConferece}
+        searchState={teamSearch}
+        clearSearch={onSearchClearBtnClick}
+      />
+      <div className="App">
+        {loading ? (
+          <Loader loading={loading} />
+        ) : (
+          <TeamList teams={filterNbaTeams} />
+        )}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
