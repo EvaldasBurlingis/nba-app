@@ -16,7 +16,6 @@ class App extends Component {
 
   // Get teams from API
   // Show loader before teams are loaded
-  // Once they load, replace loader with teams
   componentDidMount() {
     fetch("https://www.balldontlie.io/api/v1/teams")
       .then(res => res.json())
@@ -24,35 +23,29 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-
   // TEAM SEARCH
   onSearchChange = e => {
-    this.setState({search: e.target.value});
+    this.setState({ search: e.target.value });
   };
 
   // CLEAR SEARCH FIELD
   // If search field is not empty, add button to clear it
   onSearchClearBtnClick = e => {
-    this.setState({ search: "" })
-  }
-
+    this.setState({ search: "" });
+  };
 
   // SELECT EAST CONFERENCE BUTTON
   onEastButtonClick = e => {
-    let newConfState;
-    this.state.selectedConference === "east" ? (newConfState = "") : (newConfState = "east");
-    this.setState({
-      selectedConference: newConfState
-    });
+    this.state.selectedConference === "east"
+      ? this.setState({ selectedConference: "" })
+      : this.setState({ selectedConference: "east" });
   };
 
   // SELECT WEST CONFERENCE BUTTON
   onWestButtonClick = e => {
-    let newConfState;
-    this.state.selectedConference === "west" ? (newConfState = "") : (newConfState = "west");
-    this.setState({
-      selectedConference: newConfState
-    });
+    this.state.selectedConference === "west"
+      ? this.setState({ selectedConference: "" })
+      : this.setState({ selectedConference: "west" });
   };
 
   render() {
@@ -60,12 +53,14 @@ class App extends Component {
     // FILTER TEAMS BY SELECTED CONFERENCE
     const filterConference = teams.filter(team => {
       const { conference } = team;
-      return conference.toLowerCase().includes(selectedConference.toLowerCase());
+      return conference
+        .toLowerCase()
+        .includes(selectedConference.toLowerCase());
     });
 
     // FILTER BY SEARCH INPUT
     const filterSearch = filterConference.filter(team => {
-      const { full_name } = team 
+      const { full_name } = team;
       return full_name.toLowerCase().includes(search.toLowerCase());
     });
 

@@ -3,7 +3,7 @@ import { TeamCard } from "./index";
 
 const TeamList = ({ teams }) => {
   //check if teams array is empty
-  if(teams.length !== 0) {
+  if (teams.length !== 0) {
     return (
       <div className="team-list-grid">
         {teams.map(team => {
@@ -18,11 +18,13 @@ const TeamList = ({ teams }) => {
   } else {
     return (
       <div className="fw-center">
-        <h1 className="display-1 text-center">Oh no...<br/> Team with that name does not exist</h1>
+        <h1 className="display-1 text-center">
+          Oh no...
+          <br /> Team with that name does not exist
+        </h1>
       </div>
-    )
+    );
   }
-
 };
 
 export default TeamList;

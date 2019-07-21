@@ -35,6 +35,11 @@ const useStyles = makeStyles(theme => ({
   },
   table: {
     minWidth: 700
+  },
+  isCentered: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 }));
 
@@ -77,7 +82,7 @@ const PlayersTable = ({ data }) => {
                     alt=""
                   />
                   </TableCell>*/}
-                <TableCell align="right">
+                <TableCell align="right" className={classes.isCentered}>
                   <PlayerImage
                     player_name={full_name[0]}
                     player_lastName={full_name[1]}

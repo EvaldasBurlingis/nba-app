@@ -58,6 +58,7 @@ const PlayerCard = ({ players }) => {
               <PlayerImage
                 player_name={full_name[0]}
                 player_lastName={full_name[1]}
+                size={"lg"}
               />
               <h1>{player.name}</h1>
               <Paper className={classes.root}>
