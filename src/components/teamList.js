@@ -8,7 +8,7 @@ const TeamList = ({ teams }) => {
       <div className="team-list-grid">
         {teams.map(team => {
           return (
-            <div key={team.team_id}>
+            <div key={team.id}>
               <TeamCard team={team} />
             </div>
           );

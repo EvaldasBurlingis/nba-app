@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import team_ids from "../data/team_ids";
 import { Modal } from "./index";
 import { checkIfValidAbbreviation } from "./utils";
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,27 +18,20 @@ const useStyles = makeStyles({
 });
 
 const TeamCard = ({ team }) => {
+  console.log(team);
+
   //  STATE
   const [showTeam, setShowTeam] = useState(false);
   const [players, setPlayers] = useState([]);
-  const [teamId, setTeamId] = useState();
 
   function handlePopup() {
     setShowTeam({ showTeam: !showTeam });
   }
 
-  function teamWithId(teamz) {
-    teamz.map(kom => {
-      if (kom.name === team.full_name) {
-        return setTeamId(kom.id);
-      }
-    });
-  }
-
   useEffect(() => {
     // Check for valid abbreviation
     let teamAbbreviation = checkIfValidAbbreviation(team.abbreviation);
-    teamWithId(team_ids);
+
     axios
       .get(
         `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
@@ -66,7 +58,7 @@ const TeamCard = ({ team }) => {
             component="img"
             alt="Contemplative Reptile"
             height="140"
-            image={`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${abbreviation.toLowerCase()}.png`}
+            image={`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${team.abbreviation.toLowerCase()}.png`}
             title="Contemplative Reptile"
           />
           <CardContent>
@@ -74,7 +66,7 @@ const TeamCard = ({ team }) => {
               {`${full_name}`}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Team id {teamId}
+              Team id
             </Typography>
           </CardContent>
         </CardActionArea>
