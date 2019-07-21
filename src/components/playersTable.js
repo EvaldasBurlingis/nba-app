@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { PlayerImage } from "./index";
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -37,9 +38,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const PlayersTable = ({ data }) => {
-  const [hasImage, setHasImage] = useState([{ hasImage: false }]);
+// TODO
+// fetch images with axios
+// if image exist change state and load image
+// if image does not exist show blank card
 
+const PlayersTable = ({ data }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.root}>
@@ -63,7 +67,7 @@ const PlayersTable = ({ data }) => {
             const full_name = player.name.split(" ");
             return (
               <TableRow key={player.name + player.games_played}>
-                <TableCell align="right" style={{ padding: 0 }}>
+                {/*<TableCell align="right" style={{ padding: 0 }}>
                   {" "}
                   <img
                     style={{ height: "auto", width: "200px", marginRight: 0 }}
@@ -71,6 +75,12 @@ const PlayersTable = ({ data }) => {
                       full_name[1]
                     }/${full_name[0]}`}
                     alt=""
+                  />
+                  </TableCell>*/}
+                <TableCell align="right">
+                  <PlayerImage
+                    player_name={full_name[0]}
+                    player_lastName={full_name[1]}
                   />
                 </TableCell>
                 <TableCell align="right">{player.name}</TableCell>

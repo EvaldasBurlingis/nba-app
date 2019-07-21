@@ -7,6 +7,7 @@ import Loader from "./loader";
 import Btn from "./buttons";
 import SearchInput from "./searchInput";
 import PlayerCard from "./playerCard";
+import PlayerImage from "./playerImage";
 
 export {
   TeamList,
@@ -17,5 +18,6 @@ export {
   Loader,
   Btn,
   SearchInput,
-  PlayerCard
+  PlayerCard,
+  PlayerImage
 };
