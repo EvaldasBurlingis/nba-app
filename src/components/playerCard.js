@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { PlayerImage } from "./index";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,11 +55,9 @@ const PlayerCard = ({ players }) => {
                 width: "100%"
               }}
             >
-              <img
-                src={`https://nba-players.herokuapp.com/players/${
-                  full_name[1]
-                }/${full_name[0]}`}
-                alt=""
+              <PlayerImage
+                player_name={full_name[0]}
+                player_lastName={full_name[1]}
               />
               <h1>{player.name}</h1>
               <Paper className={classes.root}>

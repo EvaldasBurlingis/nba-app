@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// import { ClipLoader } from "react-spinners";
+import PlaceholderImage from "../img/no-image.png";
 
 const PlayerImage = ({ player_name, player_lastName }) => {
   const [hasImage, setHasImage] = useState(false);
-  let imageUrl = "";
 
+  // Check if player has image
+  // Change state accordingly
   useEffect(() => {
     axios
       .get(
         `https://nba-players.herokuapp.com/players/${player_lastName}/${player_name}`
       )
-      .then(response => {
-        response.data ===
+      .then(res => {
+        res.data ===
         "Sorry, that player was not found. Please check the spelling."
           ? setHasImage(false)
           : setHasImage(true);
-
-        imageUrl = response.data;
-
-        return imageUrl;
       })
       .catch(err => {
         return console.log(err);
@@ -26,15 +25,21 @@ const PlayerImage = ({ player_name, player_lastName }) => {
   });
 
   return (
-    <img
-      style={{ height: "auto", width: "200px", marginRight: 0 }}
-      src={
-        hasImage
-          ? `https://nba-players.herokuapp.com/players/${player_lastName}/${player_name}`
-          : "https://placeimg.com/100/100/any"
-      }
-      alt=""
-    />
+    <span>
+      {hasImage ? (
+        <img
+          style={{ height: "auto", width: "150px", marginRight: 0 }}
+          src={`https://nba-players.herokuapp.com/players/${player_lastName}/${player_name}`}
+          alt=""
+        />
+      ) : (
+        <img
+          style={{ height: "auto", width: "150px", marginRight: 0 }}
+          src={PlaceholderImage}
+          alt=""
+        />
+      )}
+    </span>
   );
 };
 
