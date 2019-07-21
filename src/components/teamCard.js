@@ -23,6 +23,7 @@ const TeamCard = ({ team }) => {
   const [showTeam, setShowTeam] = useState(false);
   const [players, setPlayers] = useState([]);
   const [teamId, setTeamId] = useState();
+  const [teamInfo, setTeamInfo] = useState();
 
   function handlePopup() {
     setShowTeam({ showTeam: !showTeam });
