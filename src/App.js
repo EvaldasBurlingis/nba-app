@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { TeamList, NavBar, Loader } from "./components";
-import "./style/main.css";
 import team_ids from "./data/team_ids";
 
 class App extends Component {

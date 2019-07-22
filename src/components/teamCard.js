@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import team_ids from "../data/team_ids";
 import { Modal } from "./index";
 import { checkIfValidAbbreviation } from "./utils";
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,7 +22,6 @@ const TeamCard = ({ team }) => {
   const [showTeam, setShowTeam] = useState(false);
   const [players, setPlayers] = useState([]);
 
-
   function handlePopup() {
     setShowTeam({ showTeam: !showTeam });
   }
@@ -33,13 +31,12 @@ const TeamCard = ({ team }) => {
     let teamAbbreviation = checkIfValidAbbreviation(team.abbreviation);
     axios
       .get(
-        `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`,
+        `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
       )
       .then(res => {
         setPlayers(res.data);
       })
       .catch(err => console.error(err));
-
   });
 
   const { abbreviation, full_name } = team;
