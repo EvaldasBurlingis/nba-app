@@ -2,6 +2,7 @@ import React from "react";
 import { TeamCard } from "./index";
 
 const TeamList = ({ teams }) => {
+
   //check if teams array is empty
   if (teams.length !== 0) {
     return (

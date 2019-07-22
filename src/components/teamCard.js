@@ -22,33 +22,24 @@ const TeamCard = ({ team }) => {
   //  STATE
   const [showTeam, setShowTeam] = useState(false);
   const [players, setPlayers] = useState([]);
-  const [teamId, setTeamId] = useState();
-  const [teamInfo, setTeamInfo] = useState();
+
 
   function handlePopup() {
     setShowTeam({ showTeam: !showTeam });
   }
 
-  function teamWithId(teamz) {
-    teamz.map(kom => {
-      if (kom.name === team.full_name) {
-        return setTeamId(kom.id);
-      }
-    });
-  }
-
   useEffect(() => {
     // Check for valid abbreviation
     let teamAbbreviation = checkIfValidAbbreviation(team.abbreviation);
-    teamWithId(team_ids);
     axios
       .get(
-        `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
+        `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`,
       )
       .then(res => {
         setPlayers(res.data);
       })
       .catch(err => console.error(err));
+
   });
 
   const { abbreviation, full_name } = team;
@@ -65,17 +56,17 @@ const TeamCard = ({ team }) => {
         <CardActionArea>
           <CardMedia
             component="img"
-            alt="Contemplative Reptile"
-            height="140"
+            alt={`${full_name} logo`}
+            height="120"
             image={`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${abbreviation.toLowerCase()}.png`}
-            title="Contemplative Reptile"
+            title={`${full_name} logo`}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {`${full_name}`}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Team id {teamId}
+              about team
             </Typography>
           </CardContent>
         </CardActionArea>
