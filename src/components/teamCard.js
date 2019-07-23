@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Modal } from "./index";
+import { Modal, TeamCardFooter } from "./index";
 import { checkIfValidAbbreviation } from "./utils";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -13,7 +13,12 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345
+    padding: "1rem"
+  },
+  cardImage: {
+    width: 250,
+    height: 250,
+    margin: "0 auto"
   }
 });
 
@@ -22,59 +27,60 @@ const TeamCard = ({ team }) => {
   const [showTeam, setShowTeam] = useState(false);
   const [players, setPlayers] = useState([]);
 
-  function handlePopup() {
-    setShowTeam({ showTeam: !showTeam });
-  }
+  // function handlePopup() {
+  //   setShowTeam({ showTeam: !showTeam });
+  // }
 
-  useEffect(() => {
-    // Check for valid abbreviation
-    let teamAbbreviation = checkIfValidAbbreviation(team.abbreviation);
-    axios
-      .get(
-        `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
-      )
-      .then(res => {
-        setPlayers(res.data);
-      })
-      .catch(err => console.error(err));
-  });
+  // useEffect(() => {
+  //   // Check for valid abbreviation
+  //   let teamAbbreviation = checkIfValidAbbreviation(team.abbreviation);
+  //   axios
+  //     .get(
+  //       `https://nba-players.herokuapp.com/players-stats-teams/${teamAbbreviation}`
+  //     )
+  //     .then(res => {
+  //       setPlayers(res.data);
+  //     })
+  //     .catch(err => console.error(err));
+  // });
 
-  const { abbreviation, full_name } = team;
+  // const { abbreviation, full_name } = team;
   const classes = useStyles();
+  //onClick={handlePopup}
 
+  const { strWebsite, strFacebook, strTwitter, strInstagram } = team;
   return (
-    <div className="team-card" onClick={handlePopup}>
-      {showTeam ? (
+    <div className="team-card">
+      {/*showTeam ? (
         <Modal handlePopup={handlePopup} team={team} players={players} />
       ) : (
         ""
-      )}
+      )*/}
       <Card className={classes.card}>
         <CardActionArea>
           <CardMedia
             component="img"
-            alt={`${full_name} logo`}
-            height="120"
-            image={`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${abbreviation.toLowerCase()}.png`}
-            title={`${full_name} logo`}
+            alt={`${team.strTeam} logo`}
+            height="100"
+            image={`http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${team.strTeamShort.toLowerCase()}.png`}
+            title={`${team.strTeam} logo`}
+            className={classes.cardImage}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              {`${full_name}`}
+              {`${team.strTeam}`}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               about team
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
+        <TeamCardFooter
+          fb={strFacebook}
+          ig={strInstagram}
+          twitter={strTwitter}
+          web={strWebsite}
+        />
       </Card>
     </div>
   );

@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(6),
     pointerEvents: "pointer",
     "&:hover": {
-      color: "#f50057"
+      color: "#333333"
     }
   },
   inputRoot: {

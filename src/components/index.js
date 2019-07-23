@@ -8,6 +8,8 @@ import Btn from "./buttons";
 import SearchInput from "./searchInput";
 import PlayerCard from "./playerCard";
 import PlayerImage from "./playerImage";
+import HomeGrid from "./homeGrid";
+import TeamCardFooter from "./teamCardFooter";
 
 export {
   TeamList,
@@ -19,5 +21,7 @@ export {
   Btn,
   SearchInput,
   PlayerCard,
-  PlayerImage
+  PlayerImage,
+  HomeGrid,
+  TeamCardFooter
 };
