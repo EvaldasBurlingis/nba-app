@@ -1,7 +1,10 @@
 import React from "react";
+// UI IMPORTS
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import { IconInstagram, IconTwitter, IconFacebook, IconWeb } from "./icons";
+
+
 
 const TeamCardFooter = ({ fb, ig, twitter, web }) => {
   return (
