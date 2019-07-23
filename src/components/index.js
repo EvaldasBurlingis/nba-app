@@ -6,7 +6,8 @@ import TeamCard from "./teamCard";
 import TeamCardFooter from "./teamCardFooter";
 import TeamCardContent from "./teamCardContent";
 import TeamModal from "./teamModal";
-import TeamModalHeader from "./teamModalHeader"
+import TeamModalHeader from "./teamModalHeader";
+import ModalTeamTab from "./teamModalTeamTab";
 
 export {
   NavBar,
@@ -17,5 +18,6 @@ export {
   TeamCardFooter,
   TeamCardContent,
   TeamModal,
-  TeamModalHeader
+  TeamModalHeader,
+  ModalTeamTab
 };

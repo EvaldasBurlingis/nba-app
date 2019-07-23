@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { IconBasketball, IconShirt, IconScoreboard } from "./icons";
+import { ModalTeamTab } from "./index";
 // UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -8,7 +10,6 @@ import ClearIcon from "@material-ui/icons/Clear";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import PhoneIcon from "@material-ui/icons/Phone";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
@@ -53,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TeamModalHeader = ({ handleClose }) => {
+const TeamModalHeader = ({ handleClose, team }) => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -62,7 +63,6 @@ const TeamModalHeader = ({ handleClose }) => {
   }
   return (
     <div>
-      <ClearIcon classsName={classes.clearIcon} onClick={handleClose} />
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
@@ -74,15 +74,33 @@ const TeamModalHeader = ({ handleClose }) => {
             textColor="primary"
             aria-label="Scrollable force tabs example"
           >
-            <Tab label="Item One" icon={<PhoneIcon />} {...a11yProps(0)} />
-            <Tab label="Item two" icon={<PhoneIcon />} {...a11yProps(1)} />
+            <Tab label="Team" icon={<IconBasketball />} {...a11yProps(0)} />
+            <Tab label="Players" icon={<IconShirt />} {...a11yProps(1)} />
+            <Tab
+              label="Standings"
+              icon={<IconScoreboard />}
+              {...a11yProps(2)}
+            />
+            <Tab
+              onClick={handleClose}
+              label="Close"
+              icon={
+                <ClearIcon
+                  classsName={classes.clearIcon}
+                  onClick={handleClose}
+                />
+              }
+            />
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          Item One
+          <ModalTeamTab team={team} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item two
+          players
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          Standings
         </TabPanel>
       </div>
     </div>

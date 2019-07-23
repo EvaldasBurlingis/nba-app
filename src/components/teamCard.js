@@ -6,7 +6,6 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 
-
 const useStyles = makeStyles({
   card: {
     padding: "1rem"
@@ -15,8 +14,7 @@ const useStyles = makeStyles({
     width: 250,
     height: 250,
     margin: "0 auto"
-  },
-
+  }
 });
 
 const TeamCard = ({ team }) => {
@@ -32,19 +30,18 @@ const TeamCard = ({ team }) => {
   };
 
   // Content
-  const { 
-    strTeam: teamName, 
-    intFormedYear: yearFormed, 
+  const {
+    strTeam: teamName,
+    intFormedYear: yearFormed,
     strStadium: stadium,
     strStadiumLocation: stadiumLocation,
     intStadiumCapacity: stadiumCapacity,
-    strWebsite, 
-    strFacebook, 
-    strTwitter, 
-    strInstagram, 
+    strWebsite,
+    strFacebook,
+    strTwitter,
+    strInstagram,
     strYoutube
   } = team;
-
 
   return (
     <div className="team-card">
@@ -58,13 +55,13 @@ const TeamCard = ({ team }) => {
             title={`${teamName} logo`}
             className={classes.cardImage}
           />
-          <TeamCardContent 
-            teamName={teamName} 
-            yearFormed={yearFormed} 
+          <TeamCardContent
+            teamName={teamName}
+            yearFormed={yearFormed}
             stadium={stadium}
             stadiumLocation={stadiumLocation}
             stadiumCapacity={stadiumCapacity}
-            />
+          />
         </CardActionArea>
         <TeamCardFooter
           fb={strFacebook}
@@ -74,9 +71,7 @@ const TeamCard = ({ team }) => {
           youtube={strYoutube}
         />
       </Card>
-      <TeamModal  
-        isOpen={open}
-        handleClose={handleClose}/>
+      <TeamModal isOpen={open} handleClose={handleClose} team={team} />
     </div>
   );
 };
