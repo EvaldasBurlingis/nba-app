@@ -16,6 +16,11 @@
   }
 }
 
+html {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   margin: 0; /* Remove the tiny space around the edge of the page */
 }

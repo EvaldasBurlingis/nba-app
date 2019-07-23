@@ -1,8 +1,3 @@
-html {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
 .App {
   min-height: 100vh;
   width: 100%;
