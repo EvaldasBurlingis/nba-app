@@ -5,6 +5,7 @@ import HomeGrid from "./homeGrid";
 import TeamCard from "./teamCard";
 import TeamCardFooter from "./teamCardFooter";
 import TeamCardContent from "./teamCardContent";
+import TeamModal from "./teamModal";
 
 export {
   NavBar,
@@ -13,5 +14,6 @@ export {
   HomeGrid,
   TeamCard,
   TeamCardFooter,
-  TeamCardContent
+  TeamCardContent,
+  TeamModal
 };

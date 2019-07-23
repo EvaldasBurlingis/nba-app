@@ -1,5 +1,5 @@
-import React from "react";
-import { TeamCardFooter, TeamCardContent } from "./index";
+import React, { useState } from "react";
+import { TeamCardFooter, TeamCardContent, TeamModal } from "./index";
 //  UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -21,8 +21,16 @@ const useStyles = makeStyles({
 
 const TeamCard = ({ team }) => {
   const classes = useStyles();
-  // Social Links
-  const { strWebsite, strFacebook, strTwitter, strInstagram, strYoutube } = team;
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   // Content
   const { 
     strTeam: teamName, 
@@ -30,13 +38,18 @@ const TeamCard = ({ team }) => {
     strStadium: stadium,
     strStadiumLocation: stadiumLocation,
     intStadiumCapacity: stadiumCapacity,
+    strWebsite, 
+    strFacebook, 
+    strTwitter, 
+    strInstagram, 
+    strYoutube
   } = team;
 
 
   return (
     <div className="team-card">
       <Card className={classes.card}>
-        <CardActionArea>
+        <CardActionArea onClick={handleOpen}>
           <CardMedia
             component="img"
             alt={`${teamName} logo`}
@@ -61,6 +74,9 @@ const TeamCard = ({ team }) => {
           youtube={strYoutube}
         />
       </Card>
+      <TeamModal  
+        isOpen={open}
+        handleClose={handleClose}/>
     </div>
   );
 };

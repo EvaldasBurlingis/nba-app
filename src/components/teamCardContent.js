@@ -16,9 +16,9 @@ const TeamCardContent = ({ teamName, yearFormed, stadium, stadiumLocation, stadi
             <Box>
                 <Typography variant="body2" color="textSecondary" component="p">
                 Year formed: {yearFormed}<br/>
-                Stadium: {stadium}<br/>
+                Stadium: "{stadium}"<br/>
                 Stadium location: {stadiumLocation}<br/>
-                Stadium capacity: {stadiumCapacity}
+                Stadium capacity: {stadiumCapacity} seats
                 </Typography>
             </Box>
         </CardContent>
