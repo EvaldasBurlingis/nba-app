@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { IconBasketball, IconShirt, IconScoreboard } from "./icons";
 import { ModalTeamTab } from "./index";
@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 
 const TeamModalHeader = ({ handleClose, team }) => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -68,11 +68,8 @@ const TeamModalHeader = ({ handleClose, team }) => {
           <Tabs
             value={value}
             onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="on"
             indicatorColor="primary"
             textColor="primary"
-            aria-label="Scrollable force tabs example"
           >
             <Tab label="Team" icon={<IconBasketball />} {...a11yProps(0)} />
             <Tab label="Players" icon={<IconShirt />} {...a11yProps(1)} />

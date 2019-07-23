@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(255,255,255, 0.9)",
+    backgroundColor: "rgba(255,255,255, 0.5)",
     [theme.breakpoints.down("sm")]: {
       padding: "0rem"
     },
