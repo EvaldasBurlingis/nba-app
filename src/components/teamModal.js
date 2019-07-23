@@ -1,4 +1,5 @@
 import React from "react";
+import { TeamModalHeader } from "./index"
 // UI IMPORTS
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -31,7 +32,7 @@ const TeamModal = ({ isOpen, handleClose }) => {
             onClose={handleClose}
         >
             <div className={classes.paper}>
-                <button onClick={handleClose}>X</button>
+                <TeamModalHeader handleClose={handleClose} />
             <h2>MODAL OPEN</h2>
             </div>
         </Modal>
