@@ -52,6 +52,11 @@ const useStyles = makeStyles(theme => ({
   },
   clearIcon: {
     fontSize: "2rem"
+  },
+  tab: {
+    [theme.breakpoints.down("md")]: {
+      padding: "0.5rem",
+    }
   }
 }));
 
