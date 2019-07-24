@@ -1,77 +1,69 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "./index";
+// UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Card from '@material-ui/core/Card';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        width: '100%',
+    },
+    card: {
+      width: "100%",
+      border: "0",
+      boxShadow: "none",
+      [theme.breakpoints.down("md")]: {
+        padding: "0.5rem",
+      }
+    },
+  }));
 
 
 const LastGames = ({ teamId}) => {
+    const classes = useStyles();
     const [teamLastGames, setLastGames] = useState();
     const [loading, setLoading] = useState(true);
-
-    const useStyles = makeStyles(theme => ({
-        root: {
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-around',
-          overflow: 'hidden',
-          backgroundColor: theme.palette.background.paper,
-        },
-        gridList: {
-          flexWrap: 'nowrap',
-          // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-          transform: 'translateZ(0)',
-        },
-        title: {
-          color: theme.palette.primary.light,
-        },
-        titleBar: {
-          background:
-            'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-        },
-      }));
-
-      
-
-    function getLastGames(id) {
+ 
+    useEffect(() => {
         axios
-        .get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=${id}`)
+        .get(`https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id=${teamId}`)
         .then(res => {
             setLastGames(res.data.results);
             setLoading(false);
         })
         .catch(err =>  console.error(err));
-    }
+           }, [teamId])
 
-    useEffect(() => {
-        getLastGames(teamId);
-    }, [])
-
-    const classes = useStyles();
-
+    console.log(teamLastGames)
     return (
-         <div>
-            <h1>Last 5 games</h1>
-            {loading ?
-            <Loader loading={loading} /> 
-            : 
-            (<div className={classes.root}>
-                <GridList className={classes.gridList} cols={2.5}>
-                    {teamLastGames.map(game => {
-                        return (
-                            <GridListTile key={game.idEvent}>
-                                <img src="https://source.unsplash.com/random/400x400" alt=""/>
-                            </GridListTile>
-                        )
-                    }
-                    )}
-                </GridList>
-            </div>)}
-        </div>
+         <Card className={classes.card}>
+            <h2 style={{color: "black"}}>Last 5 games</h2>
+    {loading ? <Loader loading={loading} />  : teamLastGames.map(game => {
+        return (
+            <ExpansionPanel key={game.idEvent}>
+                <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                >
+                <Typography className={classes.heading}>{game.strHomeTeam} {game.intHomeScore} - {game.intAwayScore} {game.strAwayTeam}</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
+        )
+    }) }
+        </Card>
     )
 }
 

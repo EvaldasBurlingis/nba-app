@@ -68,11 +68,7 @@ const useStyles = makeStyles(theme => ({
 
 const ModalTeamTab = ({ team }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
-  function handleExpandClick() {
-    setExpanded(!expanded);
-  }
   const {
     idTeam,
     strTeam,
@@ -112,6 +108,16 @@ const ModalTeamTab = ({ team }) => {
                 twitter={strTwitter}
                 insta={strInstagram}
                 />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper className={classes.paper}>
+              <LastGames teamId={idTeam} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper className={classes.paper}>
+              <img src={strTeamJersey} alt=""/>
             </Paper>
           </Grid>
         </Grid>
