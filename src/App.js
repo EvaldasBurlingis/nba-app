@@ -47,7 +47,7 @@ const App = () => {
       />
       <div className="App">
         {contentLoading ? (
-          <Loader loading={contentLoading} />
+          <div className="fw-center"><Loader loading={contentLoading} /></div>
         ) : (
           <HomeGrid teams={filteredTeams} />
         )}

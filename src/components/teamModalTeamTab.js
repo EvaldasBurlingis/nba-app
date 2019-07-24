@@ -1,4 +1,5 @@
 import React from "react";
+import { LastGames } from "./index";
 // UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -8,18 +9,21 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    minHeight: "100vh"
+    minHeight: "100vh",
+    padding: "0"
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    boxShadow: "none",
   }
 }));
 
 const ModalTeamTab = ({ team }) => {
   const classes = useStyles();
   const {
+    idTeam,
     strTeam,
     intFormedYear,
     strStadium,
@@ -41,36 +45,26 @@ const ModalTeamTab = ({ team }) => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={12} md={6}>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h1" component="h2" gutterBottom>
-              {strTeam}
-            </Typography>
-            <Typography component="p" gutterBottom>
-              {strDescriptionEN}
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={12} md={4}>
-          <Paper className={classes.paper}>
-            <img src={strTeamJersey} alt="" />
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>
-            <img src={strTeamBadge} alt=""/>
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>1</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>2</Paper>
-        </Grid>
-        <Grid item xs={12} sm={12} md={6}>
-          <Paper className={classes.paper}>
-            <img src={strTeamBanner} alt=""/>
+            <Grid container>
+              <Grid item xs={12} md={8}>
+                <Grid container style={{border: "1px solid grey"}}>
+                  <Grid item xs={12} md={4}>
+                    <img src={strTeamBadge} alt=""/>
+                  </Grid>
+                  <Grid item xs={12} md={8}>
+                    <Typography variant="h1" component="h2">
+                      {strTeam}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <LastGames teamId={idTeam} teamLogo={strTeamBadge} />
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
       </Grid>

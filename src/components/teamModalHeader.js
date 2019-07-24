@@ -47,7 +47,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     width: "100%",
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
+    paddingTop: "5rem"
   },
   clearIcon: {
     fontSize: "2rem"
@@ -64,7 +65,7 @@ const TeamModalHeader = ({ handleClose, team }) => {
   return (
     <div>
       <div className={classes.root}>
-        <AppBar position="static" color="default">
+        <AppBar position="fixed" color="default">
           <Tabs
             value={value}
             onChange={handleChange}
