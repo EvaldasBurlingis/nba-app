@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { TeamModalHeader } from "./index";
 import { enableBodyScroll, disableBodyScroll } from "body-scroll-lock";
 // UI IMPORTS
@@ -34,6 +34,8 @@ const TeamModal = ({ isOpen, handleClose, team }) => {
     }
     return () => enableBodyScroll(scrollRef.current);
   }, [isOpen]);
+
+
   return (
     <Modal
       ref={scrollRef}

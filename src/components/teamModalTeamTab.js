@@ -58,16 +58,20 @@ const ModalTeamTab = ({ team }) => {
           </Paper>
         </Grid>
         <Grid item xs={6} sm={3} md={2}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+          <Paper className={classes.paper}>
+            <img src={strTeamBadge} alt=""/>
+          </Paper>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+          <Paper className={classes.paper}>1</Paper>
         </Grid>
         <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+          <Paper className={classes.paper}>2</Paper>
         </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
+        <Grid item xs={12} sm={12} md={6}>
+          <Paper className={classes.paper}>
+            <img src={strTeamBanner} alt=""/>
+          </Paper>
         </Grid>
       </Grid>
     </div>
