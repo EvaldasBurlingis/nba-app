@@ -10,7 +10,7 @@ const HomeGrid = ({ teams }) => {
     return <h1>No team with that name exists</h1>;
   } else {
     return (
-      <Container maxWidth="xl">
+      <Container style={{marginTop: "2rem"}} maxWidth="xl">
         <Grid container spacing={1} >
           {teams.map(team => (
             <Grid item xs={12} sm={12} md={6} lg={3} key={team.idTeam}>

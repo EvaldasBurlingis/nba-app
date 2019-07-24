@@ -7,8 +7,8 @@ const IconScoreboard = () => (
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
-    width="24"
-    height="24"
+    width="36"
+    height="36"
     viewBox="0 0 481.825 481.825"
     style={{ enableBackground: "new 0 0 481.825 481.825" }}
     space="preserve"

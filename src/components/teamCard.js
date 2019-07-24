@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TeamCardFooter, TeamCardContent, TeamModal } from "./index";
+import { Link } from "react-router-dom";
 //  UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -31,6 +32,7 @@ const TeamCard = ({ team }) => {
 
   // Content
   const {
+    idTeam,
     strTeam: teamName,
     intFormedYear: yearFormed,
     strStadium: stadium,
@@ -46,23 +48,25 @@ const TeamCard = ({ team }) => {
   return (
     <div className="team-card">
       <Card className={classes.card}>
-        <CardActionArea onClick={handleOpen}>
-          <CardMedia
-            component="img"
-            alt={`${teamName} logo`}
-            height="100"
-            image={team.strTeamBadge}
-            title={`${teamName} logo`}
-            className={classes.cardImage}
-          />
-          <TeamCardContent
-            teamName={teamName}
-            yearFormed={yearFormed}
-            stadium={stadium}
-            stadiumLocation={stadiumLocation}
-            stadiumCapacity={stadiumCapacity}
-          />
-        </CardActionArea>
+        <Link to={`team/${idTeam}`} style={{textDecoration: "none", color: "inherit"}}>
+          <CardActionArea onClick={handleOpen}>
+            <CardMedia
+              component="img"
+              alt={`${teamName} logo`}
+              height="100"
+              image={team.strTeamBadge}
+              title={`${teamName} logo`}
+              className={classes.cardImage}
+            />
+            <TeamCardContent
+              teamName={teamName}
+              yearFormed={yearFormed}
+              stadium={stadium}
+              stadiumLocation={stadiumLocation}
+              stadiumCapacity={stadiumCapacity}
+            />
+          </CardActionArea>
+        </Link>
         <TeamCardFooter
           fb={strFacebook}
           ig={strInstagram}
@@ -71,7 +75,7 @@ const TeamCard = ({ team }) => {
           youtube={strYoutube}
         />
       </Card>
-      <TeamModal isOpen={open} handleClose={handleClose} team={team} />
+      {/*<TeamModal isOpen={open} handleClose={handleClose} team={team} />*/}
     </div>
   );
 };

@@ -1,30 +1,52 @@
 import React from "react";
-import { SearchInput } from "./index";
-// UI IMPORTS
+import { Link } from "react-router-dom"
+import { IconBasketball, IconShirt, IconScoreboard, IconHome } from "./icons";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
   appbar: {
-    backgroundColor: "#333333"
+    background: "white",
+    boxShadow: "0 0 1rem rgba(0,0,0,0.1)",
+    padding: "0.2rem 0"
+
+  },
+  menuButton: {
+    margin: "0 0.5rem"
   }
 }));
 
-const NavBar = ({ searchChange, searchState, clearSearch }) => {
+const NavBar = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appbar}>
         <Toolbar>
-          <SearchInput
-            searchChange={searchChange}
-            searchState={searchState}
-            clearSearch={clearSearch}
-          />
+          <Link to="/">
+            <IconButton className={classes.menuButton}>
+              <IconHome/>
+            </IconButton>
+          </Link>
+          <Link to="/team">
+            <IconButton className={classes.menuButton}>
+              <IconBasketball />
+            </IconButton>
+          </Link>
+          <Link to="/player">
+            <IconButton className={classes.menuButton}>
+              <IconShirt />
+            </IconButton>
+          </Link>
+          <Link to="/standings">
+            <IconButton className={classes.menuButton}>
+              <IconScoreboard />
+            </IconButton>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

@@ -2,8 +2,8 @@ import React from "react";
 
 const IconBasketball = () => (
   <svg
-    width="24"
-    height="24"
+    width="36"
+    height="36"
     viewBox="0 0 480 480"
     xmlns="http://www.w3.org/2000/svg"
   >
