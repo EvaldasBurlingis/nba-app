@@ -8,11 +8,12 @@ import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    marginBottom: "100px",
   },
   appbar: {
     background: "white",
-    boxShadow: "0 0 1rem rgba(0,0,0,0.1)",
+    // boxShadow: "0 0 2rem rgba(0,0,0,0.5)",
     padding: "0.2rem 0"
 
   },
@@ -25,7 +26,7 @@ const NavBar = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="fixed" className={classes.appbar}>
         <Toolbar>
           <Link to="/">
             <IconButton className={classes.menuButton}>

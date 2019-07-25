@@ -1,75 +1,54 @@
 import React from "react";
 // UI IMPORTS
-import { fade, makeStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
+import { makeStyles } from "@material-ui/core/styles";
 import ClearIcon from "@material-ui/icons/Clear";
 import InputBase from "@material-ui/core/InputBase";
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
-  search: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
-    },
-    marginRight: theme.spacing(2),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto"
+  root: {
+    padding: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    width: 250,
+    margin: "2rem auto",
+    backgroundColor: "white",
+    boxShadow: "none",
+    borderRadius: 0,
+    border: "1px solid #ddd",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "0"
     }
   },
-  searchIcon: {
-    height: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginLeft: theme.spacing(2),
-    pointerEvents: "none"
+  input: {
+    marginLeft: 8,
+    flex: 1,
   },
   clearIcon: {
-    width: theme.spacing(6),
-    pointerEvents: "pointer",
     "&:hover": {
-      color: "#333333"
-    }
-  },
-  inputRoot: {
-    color: "inherit"
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 4),
-    transition: theme.transitions.create("width"),
-    width: "100%"
+      color: "tomato",
+    },
   }
 }));
 
 const SearchInput = ({ searchChange, searchState, clearSearch }) => {
   const classes = useStyles();
   return (
-    <div className={classes.search}>
-      <div className={classes.searchIcon}>
-        <SearchIcon />
-      </div>
-      <InputBase
-        placeholder="Search Team"
-        value={searchState}
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput
-        }}
-        inputProps={{ "aria-label": "Search" }}
-        onChange={searchChange}
-      />
-      {searchState !== "" ? (
-        <ClearIcon className={classes.clearIcon} onClick={clearSearch} />
-      ) : (
-        ""
-      )}
-    </div>
+    <Paper className={classes.root}>
+          <InputBase
+          placeholder="Search Team"
+          value={searchState}
+          inputProps={{ "aria-label": "Search" }}
+          onChange={searchChange}
+          className={classes.input}
+          
+        />
+        {searchState !== "" ? (
+          <ClearIcon onClick={clearSearch} className={classes.clearIcon}/>
+        ) : (
+          ""
+        )}
+    </Paper>
   );
 };
 
