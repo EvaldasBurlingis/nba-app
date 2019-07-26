@@ -5,7 +5,7 @@ import {  Loader } from "../components";
 const HomePage = () => {
 
   return (
-    <div className="fw-center">
+    <div className="fw-center mh100vh">
         <Loader/> 
     </div>
   );

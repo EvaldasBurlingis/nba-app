@@ -10,6 +10,7 @@ import TeamModalHeader from "./teamModalHeader";
 import ModalTeamTab from "./teamModalTeamTab";
 import LastGames from "./teamTabLastGames";
 import AboutCard from "./teamTabAboutCard";
+import PlayerAvatar from "./playerAvatar";
 
 export {
   NavBar,
@@ -23,5 +24,6 @@ export {
   TeamModalHeader,
   ModalTeamTab,
   LastGames, 
-  AboutCard
+  AboutCard,
+  PlayerAvatar
 };

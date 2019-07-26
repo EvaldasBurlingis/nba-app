@@ -1,10 +1,13 @@
 /* POSITIONING */
 .fw-center {
-    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .mh100vh {
+    min-height: 100vh;
   }
   
   .display-1 {

@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
   },
   appbar: {
     background: "white",
-    // boxShadow: "0 0 2rem rgba(0,0,0,0.5)",
     padding: "0.2rem 0"
 
   },
