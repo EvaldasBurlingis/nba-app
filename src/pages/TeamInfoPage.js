@@ -41,6 +41,7 @@ const TeamInfoPage = ({ match }) => {
   }
 
 
+
   useEffect(() => {
     fetchTeamPlayers();
   }, [])

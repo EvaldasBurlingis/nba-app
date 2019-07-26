@@ -18,6 +18,12 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     margin: "0 0.5rem"
+  },
+  toolbar: {
+    [theme.breakpoints.down("md")]: {
+      display: "flex",
+      justifyContent: "center"
+    },
   }
 }));
 
@@ -26,7 +32,7 @@ const NavBar = () => {
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appbar}>
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <Link to="/">
             <IconButton className={classes.menuButton}>
               <IconHome/>
