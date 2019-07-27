@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { HomePage, TeamPage, PlayerPage, StandingsPage, TeamInfoPage } from "./pages"
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import axios from "axios";
+import React from "react";
+import {
+  HomePage,
+  TeamPage,
+  PlayerPage,
+  StandingsPage,
+  TeamInfoPage
+} from "./pages";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NavBar } from "./components";
 
 const App = () => {
-
-
   return (
     <Router>
       <NavBar />
