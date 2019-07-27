@@ -45,7 +45,7 @@ const HomePage = () => {
         searchState={search}
         clearSearch={onSearchClearBtnClick}
       />
-      {contentLoading ? <div className="fw-center"><Loader/></div> : <HomeGrid teams={filteredTeams} /> }
+      {contentLoading ? <div className="fw-center mh100vh"><Loader/></div> : <HomeGrid teams={filteredTeams} /> }
     </div>
   );
 };

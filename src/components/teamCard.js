@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { TeamCardFooter, TeamCardContent, TeamModal } from "./index";
+import React from "react";
+import { TeamCardFooter, TeamCardContent } from "./index";
 import { Link } from "react-router-dom";
 //  UI IMPORTS
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,15 +20,7 @@ const useStyles = makeStyles({
 
 const TeamCard = ({ team }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   // Content
   const {
@@ -48,8 +40,8 @@ const TeamCard = ({ team }) => {
   return (
     <div className="team-card">
       <Card className={classes.card}>
-        <Link to={`team/${idTeam}`} style={{textDecoration: "none", color: "inherit"}}>
-          <CardActionArea onClick={handleOpen}>
+        <Link to={`team/${idTeam}`} style={{ textDecoration: "none", color: "inherit" }}>
+          <CardActionArea>
             <CardMedia
               component="img"
               alt={`${teamName} logo`}

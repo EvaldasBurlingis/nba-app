@@ -27,24 +27,33 @@ const useStyles = makeStyles(theme => ({
 const TeamInfoPage = ({ match }) => {
   const [teamPlayerList, setTeamPlayerList] = useState({});
   const [playerListLoading, setPlayerListLoading] = useState(true);
-  const [teamInfo, setTeamInfo] = useState({});
-  const [teamInfoLoading, setteamInfoLoading] = useState(true);
+  const [teamInfoLoading] = useState(true);
 
 
-  const fetchTeamPlayers = async () => {
-        const data = await axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${match.params.id}`)
-      .then(res => {
-        setTeamPlayerList(res.data.player);
-        setPlayerListLoading(false);
-      })
-      .catch(err => console.error(err));
-  }
+  // const fetchTeamPlayers = async () => {
+  //   await axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${match.params.id}`)
+  //     .then(res => {
+  //       setTeamPlayerList(res.data.player);
+  //       setPlayerListLoading(false);
+  //     })
+  //     .catch(err => console.error(err));
+  // }
 
+  const id = match.params.id;
 
 
   useEffect(() => {
-    fetchTeamPlayers();
-  }, [])
+    const fetchTeamPlayers = async (id) => {
+      await axios.get(`https://www.thesportsdb.com/api/v1/json/1/lookup_all_players.php?id=${id}`)
+        .then(res => {
+          setTeamPlayerList(res.data.player);
+          setPlayerListLoading(false);
+        })
+        .catch(err => console.error(err));
+    }
+
+    fetchTeamPlayers(id);
+  }, [id])
 
   const classes = useStyles();
   return (
@@ -59,10 +68,10 @@ const TeamInfoPage = ({ match }) => {
         <Grid item xs={12} md={5}>
           <Paper className={classes.paper}>
             <h1>Team</h1>
-            {playerListLoading 
-              ? <div className="fw-center"><Loader/></div> 
+            {playerListLoading
+              ? <div className="fw-center"><Loader /></div>
               :
-               <div className={classes.playerImageContainer} >{teamPlayerList.map(player => <PlayerAvatar cutout={player.strCutout} name={player.strPlayer} position={player.strPosition}/>)}</div>}
+              <div className={classes.playerImageContainer} >{teamPlayerList.map(player => <PlayerAvatar key={player} cutout={player.strCutout} name={player.strPlayer} position={player.strPosition} />)}</div>}
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>

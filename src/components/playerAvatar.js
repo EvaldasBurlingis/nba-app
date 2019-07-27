@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 
 const PlayerAvatar = ({ cutout, name, position }) => {
     const classes = useStyles();
-    console.log(position);
     return (
         <div className={classes.container}>
         <Avatar alt={name} src={cutout} className={classes.bigAvatar} />
