@@ -1,4 +1,5 @@
 import React from 'react'
+import { Loader } from "./index"
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -37,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const DivisionStandings = ({ data }) => {
+  console.log(data)
   const classes = useStyles();
 
   return (
@@ -46,16 +48,16 @@ const DivisionStandings = ({ data }) => {
           <TableRow style={{ backgroundColor: "black" }}>
             <TableCell className={classes.tableHead}>Team</TableCell>
             <TableCell className={classes.tableHead}>GP</TableCell>
-            <TableCell className={classes.tableHead} align="right">Wins</TableCell>
-            <TableCell className={classes.tableHead} align="right">Losses</TableCell>
+            <TableCell className={classes.tableHead} align="right">W</TableCell>
+            <TableCell className={classes.tableHead} align="right">L</TableCell>
             <TableCell className={classes.tableHead} align="right">Conf. W/L</TableCell>
             <TableCell className={classes.tableHead} align="right">Divison W/L </TableCell>
-            <TableCell className={classes.tableHead} align="right">Home</TableCell>
-            <TableCell className={classes.tableHead} align="right">Road</TableCell>
+            <TableCell className={classes.tableHead} align="right">Home W/L</TableCell>
+            <TableCell className={classes.tableHead} align="right">Road W/L</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(indTeam => {
+          {data.length !== 0 ? data.map(indTeam => {
             return (
               <TableRow className={classes.tableBodyRow} key={indTeam.id}>
                 <TableCell className={classes.tableBodyRowCell} component="th" scope="row">{`${indTeam.name} ${indTeam.nickname}`}</TableCell>
@@ -68,7 +70,11 @@ const DivisionStandings = ({ data }) => {
                 <TableCell className={classes.tableBodyRowCell} align="right">{indTeam.team_stats.road}</TableCell>
               </TableRow>
             )
-          })}
+          }) : (
+              <TableRow className={classes.tableBodyRow}>
+                <TableCell className={classes.tableBodyRowCell} component="th" scope="row"><Loader /></TableCell>
+              </TableRow>
+          )}
         </TableBody>
       </Table>
     </Paper>

@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
+import Typography from "@material-ui/core/Typography";
 
 
 const useStyles = makeStyles(theme => ({
@@ -16,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: "black",
-    border: "1px solid black",
     boxShadow: "none"
   }
 }));
@@ -25,10 +25,14 @@ const useStyles = makeStyles(theme => ({
 const StandingsPage = () => {
   const [standings, setStandings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [season, setSeason] = useState("2018")
+  const [season, setSeason] = useState("2018");
+  const [conference, setConference] = useState("");
 
-  const handleChange = e => {
+  const handleSeasonChange = e => {
     setSeason(e.target.value)
+  }
+  const handleConferenceChange = e => {
+    setConference(e.target.value)
   }
 
   useEffect(() => {
@@ -56,22 +60,38 @@ const StandingsPage = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} >
           <Paper className={classes.paper}>
-            <Select onChange={handleChange} value={season} native>
+            <Select onChange={handleSeasonChange} value={season} native>
               <option value={2018}>2018-2019</option>
               <option value={2016}>2016-2017</option>
               <option value={2015}>2015-2016</option>
               <option value={2014}>2014-2015</option>
+              <option value={2013}>2013-2014</option>
+              <option value={2012}>2012-2013</option>
+              <option value={2011}>2011-2012</option>
             </Select>
-            <p>{season}</p>
-            <Grid container spacing={6}>
-              <Grid item xs={12} lg={6}>
-                <h1>EAST</h1>
+            <Select onChange={handleConferenceChange} value={conference} native>
+              <option value={"All"}>ALL</option>
+              <option value={"east"}>EAST</option>
+              <option value={"west"}>WEST</option>
+            </Select>
+            <p>{conference}</p>
+            <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem" }}>
+              {conference === "west" ? ""
+               : (
+              <Grid item xs={12} lg={conference === "east" ? 12 : 6}  >
+                <Typography variant="h6" component="h2">
+                  EASTERN CONFERENCE
+                </Typography>
                 <DivisionStandings data={loading ? [] : standings.conferences.East.team} />
-              </Grid>
-              <Grid item xs={12} lg={6} >
-                <h1>WEST</h1>
+              </Grid>)}
+              {conference === "east" ? ""
+              : (
+                  <Grid item xs={12} lg={conference === "west" ? 12 : 6}>
+                <Typography variant="h6" component="h2">
+                  WESTERN CONFERENCE
+                </Typography>
                 <DivisionStandings data={loading ? [] : standings.conferences.West.team} />
-              </Grid>
+              </Grid>)}
             </Grid>
           </Paper>
         </Grid>
