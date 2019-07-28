@@ -32,6 +32,8 @@ const HomePage = () => {
   const [eventsLoading, setEventsLoading] = useState(true);
   const [upcomingEventsLoading, setUpcomingEventsLoading] = useState(true);
 
+
+
   const fetchLastEvents = async () => {
     await axios
       .get(
@@ -56,9 +58,19 @@ const HomePage = () => {
       .catch(err => console.error(err));
   };
 
+  const fetchPlayerTransactions = async () => {
+    await axios
+      .get("https://cors-anywhere.herokuapp.com/https://stats-prod.nba.com/wp-json/statscms/v1/type/spotlight/?limit=5&offset=0")
+      .then(res => {
+        console.log(res.data.posts)
+      })
+      .catch(err => console.error(err));
+  };
+
   useEffect(() => {
     fetchLastEvents();
     fetchUpcomingEvents();
+    fetchPlayerTransactions();
   }, []);
 
   const classes = useStyles();

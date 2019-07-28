@@ -11,6 +11,7 @@ import PlayerAvatar from "./playerAvatar";
 import LastLeagueGamesCard from "./lastLeagueGamesCard";
 import UpcomingLeagueEvents from "./upcomingLeagueEventsCard";
 import DivisionStandings from "./standingsDivisionTable";
+import LatestGamesTable from "./latestGames";
 
 export {
   NavBar,
@@ -26,4 +27,5 @@ export {
   LastLeagueGamesCard,
   UpcomingLeagueEvents,
   DivisionStandings,
+  LatestGamesTable
 };

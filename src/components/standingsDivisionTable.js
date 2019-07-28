@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const DivisionStandings = ({ data }) => {
-  console.log(data)
   const classes = useStyles();
 
   return (
@@ -47,7 +46,7 @@ const DivisionStandings = ({ data }) => {
         <TableHead>
           <TableRow style={{ backgroundColor: "black" }}>
             <TableCell className={classes.tableHead}>Team</TableCell>
-            <TableCell className={classes.tableHead}>GP</TableCell>
+            <TableCell className={classes.tableHead} align="right">GP</TableCell>
             <TableCell className={classes.tableHead} align="right">W</TableCell>
             <TableCell className={classes.tableHead} align="right">L</TableCell>
             <TableCell className={classes.tableHead} align="right">Conf. W/L</TableCell>

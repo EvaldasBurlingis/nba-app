@@ -36,7 +36,7 @@ const SearchInput = ({ searchChange, searchState, clearSearch }) => {
   return (
     <Paper className={classes.root}>
           <InputBase
-          placeholder="Search Team"
+          placeholder="Search"
           value={searchState}
           inputProps={{ "aria-label": "Search" }}
           onChange={searchChange}
