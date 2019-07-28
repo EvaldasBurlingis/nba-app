@@ -10,6 +10,7 @@ import AboutCard from "./teamTabAboutCard";
 import PlayerAvatar from "./playerAvatar";
 import LastLeagueGamesCard from "./lastLeagueGamesCard";
 import UpcomingLeagueEvents from "./upcomingLeagueEventsCard";
+import DivisionStandings from "./standingsDivisionTable";
 
 export {
   NavBar,
@@ -23,5 +24,6 @@ export {
   AboutCard,
   PlayerAvatar,
   LastLeagueGamesCard,
-  UpcomingLeagueEvents
+  UpcomingLeagueEvents,
+  DivisionStandings,
 };
