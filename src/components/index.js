@@ -1,7 +1,7 @@
 import NavBar from "./navBar";
 import Loader from "./loader";
 import SearchInput from "./searchInput";
-import HomeGrid from "./homeGrid";
+import TeamsPageGrid from "./teamsGrid";
 import TeamCard from "./teamCard";
 import TeamCardFooter from "./teamCardFooter";
 import TeamCardContent from "./teamCardContent";
@@ -10,14 +10,14 @@ import AboutCard from "./teamTabAboutCard";
 import PlayerAvatar from "./playerAvatar";
 import LastLeagueGamesCard from "./lastLeagueGamesCard";
 import UpcomingLeagueEvents from "./upcomingLeagueEventsCard";
-import DivisionStandings from "./standingsDivisionTable";
-import LatestGamesTable from "./latestGames";
+import DivisionStandings from "./tableSeasonStandings";
+import LatestGamesTable from "./tableLatestGames";
 
 export {
   NavBar,
   Loader,
   SearchInput,
-  HomeGrid,
+  TeamsPageGrid,
   TeamCard,
   TeamCardFooter,
   TeamCardContent,

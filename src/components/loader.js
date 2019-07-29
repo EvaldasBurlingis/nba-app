@@ -7,7 +7,7 @@ const Loader = ({ loading }) => {
         sizeUnit={"px"}
         size={150}
         color={"#123abc"}
-        loading={loading}
+        loading={true}
       />
   );
 };

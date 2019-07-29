@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HomeGrid, Loader, SearchInput } from "../components";
+import { TeamsPageGrid, Loader, SearchInput } from "../components";
 import axios from "axios";
 
 const HomePage = () => {
@@ -45,7 +45,7 @@ const HomePage = () => {
         searchState={search}
         clearSearch={onSearchClearBtnClick}
       />
-      {contentLoading ? <div className="fw-center mh100vh"><Loader/></div> : <HomeGrid teams={filteredTeams} /> }
+      {contentLoading ? <div className="fw-center mh100vh"><Loader/></div> : <TeamsPageGrid teams={filteredTeams} /> }
     </div>
   );
 };

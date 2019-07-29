@@ -9,6 +9,7 @@
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-autocomplete": "^1.8.1",
     "react-chartjs-2": "^2.7.6",
     "react-dev-utils": "^9.0.1",
     "react-dom": "^16.8.6",

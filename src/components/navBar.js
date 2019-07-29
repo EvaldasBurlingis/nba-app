@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { IconBasketball, IconShirt, IconScoreboard, IconHome } from "./icons";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,21 +9,21 @@ import IconButton from "@material-ui/core/IconButton";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    marginBottom: "100px",
+    marginBottom: "80px",
   },
   appbar: {
     background: "white",
     padding: "0.2rem 0"
-
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "center"
   },
   menuButton: {
     margin: "0 0.5rem"
   },
-  toolbar: {
-    [theme.breakpoints.down("md")]: {
-      display: "flex",
-      justifyContent: "center"
-    },
+  activeLink: {
+    fill: "#f12711"
   }
 }));
 
@@ -33,26 +33,26 @@ const NavBar = () => {
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appbar}>
         <Toolbar className={classes.toolbar}>
-          <Link to="/">
+          <NavLink to="/" exact={true} activeClassName={classes.activeLink}>
             <IconButton className={classes.menuButton}>
               <IconHome/>
             </IconButton>
-          </Link>
-          <Link to="/team">
+          </NavLink>
+          <NavLink to="/team" activeClassName={classes.activeLink}>
             <IconButton className={classes.menuButton}>
               <IconBasketball />
             </IconButton>
-          </Link>
-          <Link to="/player">
+          </NavLink>
+          <NavLink to="/player" activeClassName={classes.activeLink}>
             <IconButton className={classes.menuButton}>
               <IconShirt />
             </IconButton>
-          </Link>
-          <Link to="/standings">
+          </NavLink>
+          <NavLink to="/standings" activeClassName={classes.activeLink}>
             <IconButton className={classes.menuButton}>
               <IconScoreboard />
             </IconButton>
-          </Link>
+          </NavLink>
         </Toolbar>
       </AppBar>
     </div>
