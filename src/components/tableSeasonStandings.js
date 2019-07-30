@@ -71,7 +71,7 @@ const DivisionStandings = ({ data }) => {
             )
           }) : (
               <TableRow className={classes.tableBodyRow}>
-                <TableCell className={classes.tableBodyRowCell} component="th" scope="row"><Loader /></TableCell>
+                <TableCell style={{ minHeight: "200px",display: "flex", justifyContent: "center", alignItems: "center" }} className={classes.tableBodyRowCell} component="th" scope="row"><Loader /></TableCell>
               </TableRow>
           )}
         </TableBody>

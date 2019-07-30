@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { fetchStandings, fetchLastEvents } from "../API";
 import { DivisionStandings, LatestGamesTable } from "../components";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -33,30 +33,9 @@ const StandingsPage = () => {
     setConference(e.target.value)
   }
 
-  const fetchLastEvents = async () => {
-    await axios
-      .get(
-        `https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=4387`
-      )
-      .then(res => {
-        setLastEvents(res.data.events);
-      })
-      .catch(err => console.error(err));
-  };
-
   useEffect(() => {
-    const fetchStandings = async (season) => {
-      await axios
-        .get(`https://cors-anywhere.herokuapp.com/http://data.nba.net/json/cms/${season}/standings/conference.json`)
-        .then(data => {
-          setStandings(data.data.sports_content.standings)
-          setLoading(false);
-        }
-        )
-        .catch(err => console.error(err));
-    }
-    fetchStandings(season);
-    fetchLastEvents();
+    fetchStandings(season, setStandings, setLoading);
+    fetchLastEvents(setLastEvents);
   }, [season])
 
 

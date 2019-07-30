@@ -1,5 +1,5 @@
-import React, {/* useState, useEffect */} from "react";
-// import axios from "axios";
+import React, {  useState, useEffect } from "react";
+import { fetchPlayer } from "../API"
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
@@ -16,38 +16,30 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
-
 const PlayerPage = () => {
-  // const [search, setSearch] = useState("");
-  // const [player, setPlayer] = useState([]);
+  const [search, setSearch] = useState("");
+  const [playersList, setPlayersList] = useState([]);
+  const [player, setPlayer] = useState(null);
 
 
-  // // TEAM SEARCH
-  // const onSearchChange = e => {
-  //   setSearch(e.target.value);
-  // };
+  // TEAM SEARCH
+  const onSearchChange = e => {
+    setSearch(e.target.value);
+  };
   
 
-  // // CLEAR SEARCH FIELD
-  // // If search field is not empty, add button to clear it
+  // CLEAR SEARCH FIELD
+  // If search field is not empty, add button to clear it
   // const onSearchClearBtnClick = e => {
   //   setSearch("");
   // };
 
-  // useEffect(() => {
-  //   const fetchPlayer = async (search) => {
-  //     await axios
-  //       .get(`https://www.balldontlie.io/api/v1/players?search=${search}`)
-  //       .then(res => setPlayer(res.data))
-  //       .catch(err => console.error(err))
-  //   };
-
-  //   fetchPlayer(search)
-  // }, [search])
+  useEffect(() => {
+    fetchPlayer(search, setPlayersList)
+  }, [search])
 
 
-
+  console.log(playersList)
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
@@ -57,8 +49,12 @@ const PlayerPage = () => {
             <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
               <Grid item xs={12}>
                 <Typography variant="h3" component="h1" style={{ margintop: "1rem", marginBottom: "1rem" }} >
-                  PLAYERS
+                  {player !== null ? player.first_name + " " + player.last_name : ""}
                 </Typography>
+                <input type="text" onChange={onSearchChange} placeholder="Search Players"/>
+                {search === "" ? "" : 
+                  playersList.length === 0 ? <p>Check players name</p>  :
+                   playersList.map(players => <p key={players.id} onClick={() => setPlayer(players)}>{`${players.first_name} ${players.last_name}`}</p>)}
               </Grid>
             </Grid>
           </Paper>
