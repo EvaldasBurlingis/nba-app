@@ -9,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 
 const useStyles = makeStyles({
   card: {
-    padding: "1rem"
   },
   cardImage: {
     width: 250,

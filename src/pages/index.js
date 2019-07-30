@@ -1,8 +1,8 @@
-import HomePage from "./HomePage";
-import PlayerPage from "./PlayerPage";
-import TeamPage from "./TeamPage";
-import TeamInfoPage from "./TeamInfoPage";
-import StandingsPage from "./StandingsPage";
+import HomePage from "./Home";
+import PlayerPage from "./Player";
+import TeamPage from "./Team";
+import TeamInfoPage from "./TeamInfo";
+import StandingsPage from "./Standings";
 
 export {
   HomePage,

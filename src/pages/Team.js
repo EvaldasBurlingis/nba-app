@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { TeamsPageGrid, Loader, SearchInput } from "../components";
+import { TeamsGrid, Loader, SearchInput } from "../components";
 import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  loader: {
+    minHeight: "80vh",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
 
 const HomePage = () => {
   const [teamList, setTeamList] = useState([]);
@@ -38,6 +50,7 @@ const HomePage = () => {
     return teamName.toLowerCase().includes(search.toLowerCase());
   });
 
+  const classes = useStyles();
   return (
     <div>
       <SearchInput
@@ -45,7 +58,7 @@ const HomePage = () => {
         searchState={search}
         clearSearch={onSearchClearBtnClick}
       />
-      {contentLoading ? <div className="fw-center mh100vh"><Loader/></div> : <TeamsPageGrid teams={filteredTeams} /> }
+      {contentLoading ? <div className={classes.loader}><Loader/></div> : <TeamsGrid teams={filteredTeams} /> }
     </div>
   );
 };

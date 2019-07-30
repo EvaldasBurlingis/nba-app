@@ -1,7 +1,7 @@
 import NavBar from "./navBar";
 import Loader from "./loader";
 import SearchInput from "./searchInput";
-import TeamsPageGrid from "./teamsGrid";
+import TeamsGrid from "./teamsGrid";
 import TeamCard from "./teamCard";
 import TeamCardFooter from "./teamCardFooter";
 import TeamCardContent from "./teamCardContent";
@@ -17,7 +17,7 @@ export {
   NavBar,
   Loader,
   SearchInput,
-  TeamsPageGrid,
+  TeamsGrid,
   TeamCard,
   TeamCardFooter,
   TeamCardContent,

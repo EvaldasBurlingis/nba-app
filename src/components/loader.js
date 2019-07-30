@@ -1,12 +1,15 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import {
+  BeatLoader
+ } from "react-spinners";
 
-const Loader = ({ loading }) => {
+const Loader = () => {
   return (
-      <ClipLoader
+    <BeatLoader
         sizeUnit={"px"}
-        size={150}
-        color={"#123abc"}
+        size={20}
+        margin="4px"
+        color={"#d4d4d4"}
         loading={true}
       />
   );

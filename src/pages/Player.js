@@ -7,9 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
@@ -54,12 +51,16 @@ const PlayerPage = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
-      <Grid container spacing={3}>
-        <Grid item xs={12} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }} >
+      <Grid container spacing={2}>
+        <Grid item xs={12} >
           <Paper className={classes.paper}>
-            <Typography variant="h4" component="h2">
-              PLAYERS
-           </Typography>
+            <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
+              <Grid item xs={12}>
+                <Typography variant="h3" component="h1" style={{ margintop: "1rem", marginBottom: "1rem" }} >
+                  PLAYERS
+                </Typography>
+              </Grid>
+            </Grid>
           </Paper>
         </Grid>
       </Grid>

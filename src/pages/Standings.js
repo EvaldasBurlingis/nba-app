@@ -72,6 +72,9 @@ const StandingsPage = () => {
               <Typography variant="h3" component="h1" style={{margintop: "1rem", marginBottom: "1rem"}} >
                 STANDINGS
             </Typography>
+              <Typography variant="h6" component="h1" style={{margintop: "1rem", marginBottom: "1rem"}} >
+                SEASON {season}
+            </Typography>
               <div>
                 <div style={{marginBottom: "0.5rem"}}>
                   <Typography variant="button"style={{marginRight: "1rem"}} >Select season</Typography>
@@ -97,7 +100,7 @@ const StandingsPage = () => {
               </Grid>
               {conference === "west" ? "" : (
               <Grid item xs={12} lg={conference === "east" ? 12 : 6}  >
-                <Typography variant="h6" component="h2">
+                <Typography variant="h6" component="h3">
                   EASTERN CONFERENCE
                 </Typography>
                 <DivisionStandings data={loading ? [] : standings.conferences.East.team} />
@@ -105,7 +108,7 @@ const StandingsPage = () => {
               {conference === "east" ? ""
               : (
                   <Grid item xs={12} lg={conference === "west" ? 12 : 6}>
-                <Typography variant="h6" component="h2">
+                <Typography variant="h6" component="h3">
                   WESTERN CONFERENCE
                 </Typography>
                 <DivisionStandings data={loading ? [] : standings.conferences.West.team} />
@@ -127,7 +130,7 @@ const StandingsPage = () => {
             </Grid>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={7} md={6} lg={8}  xl={9}>
+        <Grid item xs={12} sm={7} md={8} lg={8}  xl={9}>
           <Paper className={classes.paper}>
             <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
               <Grid item xs={12}>
