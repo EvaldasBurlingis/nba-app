@@ -18,6 +18,10 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "black",
     boxShadow: "none",
+  },
+  title: {
+   margintop: "1rem", 
+   marginBottom: "1rem"
   }
 }));
 
@@ -30,7 +34,7 @@ const HomePage = () => {
           <Paper className={classes.paper}>
             <Grid container spacing={3} className={classes.container}>
               <Grid item xs={12}>
-                <Typography variant="h3" component="h1" style={{ margintop: "1rem", marginBottom: "1rem" }} >
+                <Typography variant="h3" component="h1" className={classes.title}>
                   HOME
                 </Typography>
               </Grid>
