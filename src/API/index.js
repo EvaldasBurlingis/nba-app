@@ -32,6 +32,13 @@ export const fetchLastEvents = async (setLastEvents) => {
         .catch(err => console.error(err));
 };
 
+export const fetchUpcomingEvents = async (setUpcomingEvents) => {
+    await axios
+        .get( `https://www.thesportsdb.com/api/v1/json/1/eventsnextleague.php?id=4387`)
+        .then(res => {setUpcomingEvents(res.data.events);})
+        .catch(err => console.error(err));
+};
+
 export const fetchStandings = async (season, setStandings, setLoading) => {
     await axios
         .get(`https://cors-anywhere.herokuapp.com/http://data.nba.net/json/cms/${season}/standings/conference.json`)

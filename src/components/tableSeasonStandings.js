@@ -59,7 +59,7 @@ const DivisionStandings = ({ data }) => {
           {data.length !== 0 ? data.map(indTeam => {
             return (
               <TableRow className={classes.tableBodyRow} key={indTeam.id}>
-                <TableCell className={classes.tableBodyRowCell} component="th" scope="row">{`${indTeam.name} ${indTeam.nickname}`}</TableCell>
+                <TableCell style={{width: "100%"}} className={classes.tableBodyRowCell} component="th" scope="row">{`${indTeam.name} ${indTeam.nickname}`}</TableCell>
                 <TableCell className={classes.tableBodyRowCell} align="right">{Number(indTeam.team_stats.wins) + Number(indTeam.team_stats.losses)}</TableCell>
                 <TableCell className={classes.tableBodyRowCell} align="right">{indTeam.team_stats.wins}</TableCell>
                 <TableCell className={classes.tableBodyRowCell} align="right">{indTeam.team_stats.losses}</TableCell>

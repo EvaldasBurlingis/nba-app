@@ -15,6 +15,16 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "black",
     boxShadow: "none"
+  },
+  container: {
+    boxShadow: "0 0 2rem rgba(0,0,0,0.1)", 
+    marginTop: "2rem", 
+    paddingTop: "1rem", 
+    paddingBottom: "2rem"
+  },
+  title: {
+    margintop: "1rem", 
+    marginBottom: "1rem"
   }
 }));
 
@@ -46,12 +56,12 @@ const StandingsPage = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} >
           <Paper className={classes.paper}>      
-            <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
+            <Grid container spacing={3} className={classes.container}>
               <Grid item xs={12}>
-              <Typography variant="h3" component="h1" style={{margintop: "1rem", marginBottom: "1rem"}} >
+              <Typography variant="h3" component="h1" className={classes.title} >
                 STANDINGS
             </Typography>
-              <Typography variant="h6" component="h1" style={{margintop: "1rem", marginBottom: "1rem"}} >
+              <Typography variant="h6" component="h1" className={classes.title} >
                 SEASON {season}
             </Typography>
               <div>
@@ -99,9 +109,9 @@ const StandingsPage = () => {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={5} md={4} lg={4} xl={3} >
           <Paper className={classes.paper}>
-            <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
+            <Grid container spacing={3} className={classes.container}>
               <Grid item xs={12}>
-                <Typography variant="h4" component="h1" style={{ margintop: "1rem", marginBottom: "1rem" }} >
+                <Typography variant="h4" component="h1" className={classes.title}>
                   LATEST GAMES
                 </Typography>
                 {lastEvents === [] ? "" : <LatestGamesTable games={lastEvents}/>}
@@ -111,9 +121,9 @@ const StandingsPage = () => {
         </Grid>
         <Grid item xs={12} sm={7} md={8} lg={8}  xl={9}>
           <Paper className={classes.paper}>
-            <Grid container spacing={3} style={{ boxShadow: "0 0 2rem rgba(0,0,0,0.1)", marginTop: "2rem", paddingTop: "1rem", paddingBottom: "2rem" }}>
+            <Grid container spacing={3} className={classes.container}>
               <Grid item xs={12}>
-                <Typography variant="h4" component="h1" style={{ margintop: "1rem", marginBottom: "1rem" }} >
+                <Typography variant="h4" component="h1" className={classes.title} >
                   SEASON LEADERS
                 </Typography>
                 <div>

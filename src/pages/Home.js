@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { fetchUpcomingEvents } from "../API";
+import { Loader } from "../components"
 // UI COMPONENTS
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -26,19 +28,28 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const HomePage = () => {
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+
+  useEffect(() => {
+    fetchUpcomingEvents(setUpcomingEvents);
+  }, []);
+
+  console.log(upcomingEvents)
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
       <Grid container spacing={2}>
-        <Grid item xs={12} >
+        <Grid item xs={12} md={6} className={classes.container}>
           <Paper className={classes.paper}>
-            <Grid container spacing={3} className={classes.container}>
-              <Grid item xs={12}>
-                <Typography variant="h3" component="h1" className={classes.title}>
-                  HOME
-                </Typography>
-              </Grid>
-            </Grid>
+            <Typography variant="h4" component="h2">
+              UPCOMING GAMES
+            </Typography>
+            {upcomingEvents !== null && upcomingEvents.length === 0 ? <Loader /> :
+            upcomingEvents === null ?
+              ( <Typography variant="h6" component="p" style={{marginTop: "2rem"}}>No games found</Typography>)
+               :
+            (<Typography variant="h6" component="p" style={{ marginTop: "2rem" }}>Show games</Typography>)}
           </Paper>
         </Grid>
       </Grid>
