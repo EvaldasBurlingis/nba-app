@@ -13,10 +13,12 @@ What I learned/used to build this project:
 
 FILESYSTEM
 
+```
 /public
 /src
     -/components
     -/API
     -/img
     -/pages
+```
 

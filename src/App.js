@@ -7,12 +7,12 @@ import {
   TeamInfoPage
 } from "./pages";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NavBar } from "./components";
+import { Navigation } from "./components";
 
 const App = () => {
   return (
     <Router>
-      <NavBar />
+      <Navigation />
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/team" exact component={TeamPage} />
