@@ -1,26 +1,15 @@
-# Personal project
+# Demo application to play with api's
 
-## Description
+App is not finished because I couln't find good API's to work with.
 
-Nba statistics app built as React learning project. Used react-router to do all routing and axios to fetch multiple api's to gather data. Also app was built by using material-ui as design tool.
+## Built with
 
-What I learned/used to build this project:
-* React Hooks - useState and useEffect
-* React-router -  routing
-* Material-ui - ui styling
-* Axios - data fetching 
+* React
+* Material UI
+* Axios
 
+## Images
 
-FILESYSTEM
-
-```
-/public
-/src
-    -/components
-    -/API
-    -/img
-    -/pages
-```
-
-
-## Still working on it
+![alt text](img/1.png "Logo Title Text 1")
+![alt text](img/2.png "Logo Title Text 1")
+![alt text](img/3.png "Logo Title Text 1")

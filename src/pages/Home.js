@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchUpcomingEvents } from "../API";
-import { Loader } from "../components"
+import { Loader, LatestGamesTable } from "../components"
 // UI COMPONENTS
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -30,12 +30,10 @@ const useStyles = makeStyles(theme => ({
 const HomePage = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
-
   useEffect(() => {
     fetchUpcomingEvents(setUpcomingEvents);
   }, []);
 
-  console.log(upcomingEvents)
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
@@ -49,7 +47,7 @@ const HomePage = () => {
             upcomingEvents === null ?
               ( <Typography variant="h6" component="p" style={{marginTop: "2rem"}}>No games found</Typography>)
                :
-            (<Typography variant="h6" component="p" style={{ marginTop: "2rem" }}>Show games</Typography>)}
+            (<LatestGamesTable games={upcomingEvents}/>)}
           </Paper>
         </Grid>
       </Grid>

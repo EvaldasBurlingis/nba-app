@@ -22,9 +22,7 @@ const useStyles = makeStyles({
 
 const TeamCard = ({ team }) => {
   const classes = useStyles();
-
-
-  // Content
+  
   const {
     idTeam,
     strTeam: teamName,

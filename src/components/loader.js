@@ -1,8 +1,7 @@
 import React from "react";
 import { BeatLoader } from "react-spinners";
 
-const Loader = () => {
-  return (
+const Loader = () => (
     <BeatLoader
         sizeUnit={"px"}
         size={20}
@@ -11,6 +10,5 @@ const Loader = () => {
         loading={true}
       />
   );
-};
 
 export default Loader;

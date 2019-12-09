@@ -15,31 +15,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 const PlayerPage = () => {
   const [search, setSearch] = useState("");
   const [playersList, setPlayersList] = useState([]);
   const [player, setPlayer] = useState(null);
 
-
-  // TEAM SEARCH
   const onSearchChange = e => {
     setSearch(e.target.value);
   };
   
-
-  // CLEAR SEARCH FIELD
-  // If search field is not empty, add button to clear it
-  // const onSearchClearBtnClick = e => {
-  //   setSearch("");
-  // };
-
   useEffect(() => {
     fetchPlayer(search, setPlayersList)
   }, [search])
 
-
-  console.log(playersList)
   const classes = useStyles();
   return (
     <Container maxWidth="xl">

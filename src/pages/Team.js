@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
 const HomePage = () => {
   const [teamList, setTeamList] = useState([]);
   const [search, setSearch] = useState("");
@@ -38,19 +37,14 @@ const HomePage = () => {
     fetchTeams(setTeamList);
   }, []);
 
-
-  // TEAM SEARCH
   const onSearchChange = e => {
     setSearch(e.target.value);
   };
 
-  // CLEAR SEARCH FIELD
-  // If search field is not empty, add button to clear it
   const onSearchClearBtnClick = e => {
     setSearch("");
   };
 
-  // FILTER BY SEARCH INPUT
   const filteredTeams = teamList.filter(team => {
     const { strTeam: teamName } = team;
     return teamName.toLowerCase().includes(search.toLowerCase());

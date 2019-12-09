@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import Select from "@material-ui/core/Select";
 import Typography from "@material-ui/core/Typography";
 
-
 const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
@@ -28,11 +27,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 const StandingsPage = () => {
   const [standings, setStandings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [season, setSeason] = useState("2018");
+  const [season, setSeason] = useState("2019");
   const [conference, setConference] = useState("");
   const [lastEvents, setLastEvents] = useState([]);
 
@@ -47,8 +45,6 @@ const StandingsPage = () => {
     fetchStandings(season, setStandings, setLoading);
     fetchLastEvents(setLastEvents);
   }, [season])
-
-
 
   const classes = useStyles();
   return (
@@ -68,6 +64,7 @@ const StandingsPage = () => {
                 <div style={{marginBottom: "0.5rem"}}>
                   <Typography variant="button"style={{marginRight: "1rem"}} >Select season</Typography>
                   <Select onChange={handleSeasonChange} value={season} native>
+                    <option value={2019}>2019-2020</option>
                     <option value={2018}>2018-2019</option>
                     <option value={2016}>2016-2017</option>
                     <option value={2015}>2015-2016</option>

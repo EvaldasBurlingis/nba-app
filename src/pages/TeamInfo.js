@@ -31,7 +31,6 @@ const TeamInfoPage = ({ match }) => {
 
   const id = match.params.id;
 
-
   useEffect(() => {
     fetchTeamPlayers(id, setTeamPlayerList, setPlayerListLoading);
   }, [id])
@@ -54,12 +53,6 @@ const TeamInfoPage = ({ match }) => {
               :
               <div className={classes.playerImageContainer} >{teamPlayerList.map(player => <PlayerAvatar key={player.idPlayer} cutout={player.strCutout} name={player.strPlayer} position={player.strPosition} />)}</div>}
           </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>xs=6 sm=3</Paper>
         </Grid>
       </Grid>
     </Container>
