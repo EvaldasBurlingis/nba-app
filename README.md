@@ -1,6 +1,6 @@
 # Demo application to play with api's
 
-App is not finished because I couln't find good API's to work with.
+App is not finished because I couldn't find good API's to work with.
 
 ## Built with
 
